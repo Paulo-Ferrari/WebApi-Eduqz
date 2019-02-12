@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="adbEduqz2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblConcursosCalendario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" />
+          <Property Name="exame" Type="varchar" MaxLength="50" />
+          <Property Name="data_primeira_fase" Type="date" />
+          <Property Name="data_segunda_fase" Type="date" />
+        </EntityType>
+        <EntityType Name="TblCorrecoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="redacao_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblCursosCredenciados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="int" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="grau" Type="varchar" MaxLength="50" />
+          <Property Name="modalidade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblInstituicaoCurso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="int" />
+          <Property Name="codigo_IES" Type="varchar" MaxLength="50" />
+          <Property Name="instituicao_id" Type="int" />
+          <Property Name="sigla" Type="varchar" MaxLength="10" />
+          <Property Name="nome_curso" Type="varchar" MaxLength="50" />
+          <Property Name="curso_id" Type="int" />
+          <Property Name="grau" Type="varchar" MaxLength="50" />
+          <Property Name="modalidade" Type="varchar" MaxLength="50" />
+          <Property Name="vagas_autorizadas" Type="int" />
+          <Property Name="dt_inicio_funcionamento" Type="date" />
+          <Property Name="dt_ato_criacao" Type="date" />
+          <Property Name="situacao" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_area_OCDE_geral" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_area_OCDE_especifica" Type="varchar" MaxLength="50" />
+          <Property Name="area_OCDE_especifica" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_area_OCDE_detalhada" Type="varchar" MaxLength="50" />
+          <Property Name="area_OCDE_detalhada" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_area_OCDE_curso" Type="varchar" MaxLength="50" />
+          <Property Name="area_OCDE_curso" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblInstituicoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_IES" Type="varchar" MaxLength="50" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblInstituicoesCredenciadas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_mantenedora" Type="varchar" MaxLength="50" />
+          <Property Name="razao_social" Type="varchar" MaxLength="50" />
+          <Property Name="CNPJ" Type="varchar" MaxLength="50" />
+          <Property Name="natureza_juridica" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_IES" Type="varchar" MaxLength="50" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="sigla" Type="varchar" MaxLength="10" />
+          <Property Name="rua" Type="varchar" MaxLength="50" />
+          <Property Name="cidade" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_credenciamento" Type="varchar" MaxLength="50" />
+          <Property Name="rede_id" Type="int" />
+          <Property Name="categoria_administrativa" Type="varchar" MaxLength="50" />
+          <Property Name="situacao" Type="varchar" MaxLength="50" />
+          <Property Name="CEP" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblLeadsEduqz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="sobrenome" Type="varchar" MaxLength="50" />
+          <Property Name="apelido" Type="varchar" MaxLength="50" />
+          <Property Name="data_nascimento" Type="date" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="genero" Type="varchar" MaxLength="50" />
+          <Property Name="renda_familiar" Type="varchar" MaxLength="50" />
+          <Property Name="cota" Type="varchar" MaxLength="3" />
+          <Property Name="qual_cota" Type="varchar" MaxLength="50" />
+          <Property Name="ddd" Type="varchar" MaxLength="2" />
+          <Property Name="telefone" Type="varchar" MaxLength="10" />
+          <Property Name="telefone_2" Type="varchar" MaxLength="10" />
+          <Property Name="cep" Type="varchar" MaxLength="8" />
+          <Property Name="uf" Type="varchar" MaxLength="2" />
+          <Property Name="cidade" Type="varchar" MaxLength="50" />
+          <Property Name="bairro" Type="varchar" MaxLength="50" />
+          <Property Name="segmento" Type="varchar" MaxLength="50" />
+          <Property Name="ult_colegio" Type="varchar" MaxLength="50" />
+          <Property Name="serie_atual" Type="varchar" MaxLength="50" />
+          <Property Name="olimpiada" Type="varchar" MaxLength="3" />
+          <Property Name="qual_olimpiada" Type="varchar" MaxLength="50" />
+          <Property Name="intercambio" Type="varchar" MaxLength="3" />
+          <Property Name="curso_universitario_1" Type="varchar" MaxLength="50" />
+          <Property Name="curso_universitario_2" Type="varchar" MaxLength="50" />
+          <Property Name="quais_univers" Type="varchar" MaxLength="10" />
+          <Property Name="est_universidade" Type="varchar" MaxLength="3" />
+          <Property Name="quais_univers_part" Type="varchar" MaxLength="10" />
+          <Property Name="bolsa" Type="varchar" MaxLength="3" />
+          <Property Name="xadrez" Type="varchar" MaxLength="3" />
+          <Property Name="int_idioma" Type="varchar" MaxLength="3" />
+          <Property Name="qual_idioma" Type="varchar" MaxLength="50" />
+          <Property Name="time" Type="varchar" MaxLength="50" />
+          <Property Name="fez_enem" Type="varchar" MaxLength="3" />
+          <Property Name="redacao" Type="float" />
+          <Property Name="linguagens" Type="float" />
+          <Property Name="matematica" Type="float" />
+          <Property Name="natureza" Type="float" />
+          <Property Name="humanas" Type="float" />
+        </EntityType>
+        <EntityType Name="TblLogConsultaLeads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_consulta" Type="date" Nullable="false" />
+          <Property Name="num_resultados" Type="int" Nullable="false" />
+          <Property Name="filtro_cursos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="filtro_ano" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="filtro_segunda_lingua" Type="bit" Nullable="false" />
+          <Property Name="filtro_esporte" Type="bit" Nullable="false" />
+          <Property Name="filtro_nota_min" Type="int" Nullable="false" />
+          <Property Name="filtro_nota_max" Type="int" Nullable="false" />
+          <Property Name="universidade_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblPerfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="perfil" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblPeriodoEstudante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="periodo_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblRedacoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_firebase" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="disponivel" Type="bit" Nullable="false" />
+          <Property Name="aceitado" Type="bit" Nullable="false" />
+          <Property Name="cancelado" Type="bit" Nullable="false" />
+          <Property Name="concluido" Type="bit" Nullable="false" />
+          <Property Name="data_aceitado" Type="date" />
+          <Property Name="data_concluido" Type="date" />
+          <Property Name="data_criado" Type="date" Nullable="false" />
+          <Property Name="data_rascunho" Type="date" />
+          <Property Name="url_proposta" Type="varchar" MaxLength="200" />
+          <Property Name="url_redacao" Type="varchar" MaxLength="200" />
+          <Property Name="proposta_pdf" Type="bit" Nullable="false" />
+          <Property Name="rascunho" Type="bit" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="valor_professor" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="aluno_id" Type="int" Nullable="false" />
+          <Property Name="professor_id" Type="int" />
+        </EntityType>
+        <EntityType Name="TblRedes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_credenciamento" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblTeste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="sobrenome" Type="varchar" MaxLength="50" />
+          <Property Name="apelido" Type="varchar" MaxLength="50" />
+          <Property Name="novo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblUniversidadesPROUNI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sigla" Type="varchar" MaxLength="50" />
+          <Property Name="instituicao" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblUniversidadesSISU">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="regiao" Type="varchar" MaxLength="50" />
+          <Property Name="instituicao" Type="varchar" MaxLength="50" />
+          <Property Name="sigla" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="sobrenome" Type="varchar" MaxLength="50" />
+          <Property Name="genero" Type="varchar" MaxLength="50" />
+          <Property Name="data_nascimento" Type="date" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="cep" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+          <Property Name="cidade" Type="varchar" MaxLength="50" />
+          <Property Name="bairro" Type="varchar" MaxLength="50" />
+          <Property Name="logradouro" Type="varchar" MaxLength="50" />
+          <Property Name="profissao" Type="varchar" MaxLength="50" />
+          <Property Name="periodo_id" Type="int" Nullable="false" />
+          <Property Name="rede_id" Type="int" Nullable="false" />
+          <Property Name="instituicao_id" Type="int" Nullable="false" />
+          <Property Name="meta_universidade_id" Type="int" Nullable="false" />
+          <Property Name="meta_curso_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblInstituicaoCurso_tblCursosCredenciados">
+          <End Role="TblCursosCredenciados" Type="Self.TblCursosCredenciados" Multiplicity="0..1" />
+          <End Role="TblInstituicaoCurso" Type="Self.TblInstituicaoCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCursosCredenciados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblInstituicaoCurso">
+              <PropertyRef Name="curso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblInstituicaoCurso_tblInstituicoesCredenciadas">
+          <End Role="TblInstituicoesCredenciadas" Type="Self.TblInstituicoesCredenciadas" Multiplicity="0..1" />
+          <End Role="TblInstituicaoCurso" Type="Self.TblInstituicaoCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblInstituicoesCredenciadas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblInstituicaoCurso">
+              <PropertyRef Name="instituicao_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="adbEduqz2018ModelStoreContainer">
+          <EntitySet Name="TblConcursosCalendario" EntityType="Self.TblConcursosCalendario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCorrecoes" EntityType="Self.TblCorrecoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCursosCredenciados" EntityType="Self.TblCursosCredenciados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblInstituicaoCurso" EntityType="Self.TblInstituicaoCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblInstituicoes" EntityType="Self.TblInstituicoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblInstituicoesCredenciadas" EntityType="Self.TblInstituicoesCredenciadas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLeadsEduqz" EntityType="Self.TblLeadsEduqz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLogConsultaLeads" EntityType="Self.TblLogConsultaLeads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPerfil" EntityType="Self.TblPerfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPeriodoEstudante" EntityType="Self.TblPeriodoEstudante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblRedacoes" EntityType="Self.TblRedacoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblRedes" EntityType="Self.TblRedes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTeste" EntityType="Self.TblTeste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUniversidadesPROUNI" EntityType="Self.TblUniversidadesPROUNI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUniversidadesSISU" EntityType="Self.TblUniversidadesSISU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUsuarios" EntityType="Self.TblUsuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblInstituicaoCurso_tblCursosCredenciados" Association="Self.FK_tblInstituicaoCurso_tblCursosCredenciados">
+            <End Role="TblCursosCredenciados" EntitySet="TblCursosCredenciados" />
+            <End Role="TblInstituicaoCurso" EntitySet="TblInstituicaoCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblInstituicaoCurso_tblInstituicoesCredenciadas" Association="Self.FK_tblInstituicaoCurso_tblInstituicoesCredenciadas">
+            <End Role="TblInstituicoesCredenciadas" EntitySet="TblInstituicoesCredenciadas" />
+            <End Role="TblInstituicaoCurso" EntitySet="TblInstituicaoCurso" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="adbEduqz2018Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DbEduqzContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblTeste" EntityType="adbEduqz2018Model.TblTeste" />
+          <EntitySet Name="tblUsuarios" EntityType="adbEduqz2018Model.TblUsuarios" />
+          <EntitySet Name="tblConcursosCalendario" EntityType="adbEduqz2018Model.TblConcursosCalendario" />
+          <EntitySet Name="tblCorrecoes" EntityType="adbEduqz2018Model.TblCorrecoes" />
+          <EntitySet Name="tblLeadsEduqz" EntityType="adbEduqz2018Model.TblLeadsEduqz" />
+          <EntitySet Name="tblLogConsultaLeads" EntityType="adbEduqz2018Model.TblLogConsultaLeads" />
+          <EntitySet Name="tblCursosCredenciados" EntityType="adbEduqz2018Model.TblCursosCredenciados" />
+          <EntitySet Name="tblInstituicaoCurso" EntityType="adbEduqz2018Model.TblInstituicaoCurso" />
+          <EntitySet Name="tblInstituicoes" EntityType="adbEduqz2018Model.TblInstituicoes" />
+          <EntitySet Name="tblInstituicoesCredenciadas" EntityType="adbEduqz2018Model.TblInstituicoesCredenciadas" />
+          <EntitySet Name="tblPerfil" EntityType="adbEduqz2018Model.TblPerfil" />
+          <EntitySet Name="tblPeriodoEstudante" EntityType="adbEduqz2018Model.TblPeriodoEstudante" />
+          <EntitySet Name="tblRedacoes" EntityType="adbEduqz2018Model.TblRedacoes" />
+          <EntitySet Name="tblRedes" EntityType="adbEduqz2018Model.TblRedes" />
+          <EntitySet Name="tblUniversidadesPROUNI" EntityType="adbEduqz2018Model.TblUniversidadesPROUNI" />
+          <EntitySet Name="tblUniversidadesSISU" EntityType="adbEduqz2018Model.TblUniversidadesSISU" />
+          <AssociationSet Name="FK_tblInstituicaoCurso_tblCursosCredenciados" Association="adbEduqz2018Model.FK_tblInstituicaoCurso_tblCursosCredenciados">
+            <End Role="TblCursosCredenciado" EntitySet="tblCursosCredenciados" />
+            <End Role="TblInstituicaoCurso" EntitySet="tblInstituicaoCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblInstituicaoCurso_tblInstituicoesCredenciadas" Association="adbEduqz2018Model.FK_tblInstituicaoCurso_tblInstituicoesCredenciadas">
+            <End Role="TblInstituicoesCredenciada" EntitySet="tblInstituicoesCredenciadas" />
+            <End Role="TblInstituicaoCurso" EntitySet="tblInstituicaoCurso" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TblTeste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sobrenome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apelido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="novo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sobrenome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="data_nascimento" Type="DateTime" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="logradouro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="profissao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="periodo_id" Type="Int32" Nullable="false" />
+          <Property Name="rede_id" Type="Int32" Nullable="false" />
+          <Property Name="instituicao_id" Type="Int32" Nullable="false" />
+          <Property Name="meta_universidade_id" Type="Int32" Nullable="false" />
+          <Property Name="meta_curso_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblConcursosCalendario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="exame" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="data_primeira_fase" Type="DateTime" Precision="0" />
+          <Property Name="data_segunda_fase" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TblCorrecoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="redacao_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblLeadsEduqz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sobrenome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apelido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="data_nascimento" Type="DateTime" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="renda_familiar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cota" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="qual_cota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ddd" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="telefone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="telefone_2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="segmento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ult_colegio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="serie_atual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="olimpiada" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="qual_olimpiada" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="intercambio" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="curso_universitario_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="curso_universitario_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quais_univers" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="est_universidade" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="quais_univers_part" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bolsa" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="xadrez" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="int_idioma" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="qual_idioma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fez_enem" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="redacao" Type="Double" />
+          <Property Name="linguagens" Type="Double" />
+          <Property Name="matematica" Type="Double" />
+          <Property Name="natureza" Type="Double" />
+          <Property Name="humanas" Type="Double" />
+        </EntityType>
+        <EntityType Name="TblLogConsultaLeads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_consulta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="num_resultados" Type="Int32" Nullable="false" />
+          <Property Name="filtro_cursos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="filtro_ano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="filtro_segunda_lingua" Type="Boolean" Nullable="false" />
+          <Property Name="filtro_esporte" Type="Boolean" Nullable="false" />
+          <Property Name="filtro_nota_min" Type="Int32" Nullable="false" />
+          <Property Name="filtro_nota_max" Type="Int32" Nullable="false" />
+          <Property Name="universidade_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblCursosCredenciados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="Int32" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="grau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modalidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblInstituicaoCursoes" Relationship="adbEduqz2018Model.FK_tblInstituicaoCurso_tblCursosCredenciados" FromRole="TblCursosCredenciado" ToRole="TblInstituicaoCurso" />
+        </EntityType>
+        <EntityType Name="TblInstituicaoCurso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="Int32" />
+          <Property Name="codigo_IES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="instituicao_id" Type="Int32" />
+          <Property Name="sigla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nome_curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="curso_id" Type="Int32" />
+          <Property Name="grau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modalidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vagas_autorizadas" Type="Int32" />
+          <Property Name="dt_inicio_funcionamento" Type="DateTime" Precision="0" />
+          <Property Name="dt_ato_criacao" Type="DateTime" Precision="0" />
+          <Property Name="situacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_area_OCDE_geral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_area_OCDE_especifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="area_OCDE_especifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_area_OCDE_detalhada" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="area_OCDE_detalhada" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_area_OCDE_curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="area_OCDE_curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblCursosCredenciado" Relationship="adbEduqz2018Model.FK_tblInstituicaoCurso_tblCursosCredenciados" FromRole="TblInstituicaoCurso" ToRole="TblCursosCredenciado" />
+          <NavigationProperty Name="TblInstituicoesCredenciada" Relationship="adbEduqz2018Model.FK_tblInstituicaoCurso_tblInstituicoesCredenciadas" FromRole="TblInstituicaoCurso" ToRole="TblInstituicoesCredenciada" />
+        </EntityType>
+        <EntityType Name="TblInstituicoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_IES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblInstituicoesCredenciadas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_mantenedora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="razao_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNPJ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="natureza_juridica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_IES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sigla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="rua" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_credenciamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rede_id" Type="Int32" />
+          <Property Name="categoria_administrativa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="situacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblInstituicaoCursoes" Relationship="adbEduqz2018Model.FK_tblInstituicaoCurso_tblInstituicoesCredenciadas" FromRole="TblInstituicoesCredenciada" ToRole="TblInstituicaoCurso" />
+        </EntityType>
+        <EntityType Name="TblPerfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="perfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblPeriodoEstudante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="periodo_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblRedacoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_firebase" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="disponivel" Type="Boolean" Nullable="false" />
+          <Property Name="aceitado" Type="Boolean" Nullable="false" />
+          <Property Name="cancelado" Type="Boolean" Nullable="false" />
+          <Property Name="concluido" Type="Boolean" Nullable="false" />
+          <Property Name="data_aceitado" Type="DateTime" Precision="0" />
+          <Property Name="data_concluido" Type="DateTime" Precision="0" />
+          <Property Name="data_criado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="data_rascunho" Type="DateTime" Precision="0" />
+          <Property Name="url_proposta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="url_redacao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="proposta_pdf" Type="Boolean" Nullable="false" />
+          <Property Name="rascunho" Type="Boolean" Nullable="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="valor_professor" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="aluno_id" Type="Int32" Nullable="false" />
+          <Property Name="professor_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TblRedes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_credenciamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblUniversidadesPROUNI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sigla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="instituicao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblUniversidadesSISU">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regiao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="instituicao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sigla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_tblInstituicaoCurso_tblCursosCredenciados">
+          <End Type="adbEduqz2018Model.TblCursosCredenciados" Role="TblCursosCredenciado" Multiplicity="0..1" />
+          <End Type="adbEduqz2018Model.TblInstituicaoCurso" Role="TblInstituicaoCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCursosCredenciado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblInstituicaoCurso">
+              <PropertyRef Name="curso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblInstituicaoCurso_tblInstituicoesCredenciadas">
+          <End Type="adbEduqz2018Model.TblInstituicoesCredenciadas" Role="TblInstituicoesCredenciada" Multiplicity="0..1" />
+          <End Type="adbEduqz2018Model.TblInstituicaoCurso" Role="TblInstituicaoCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblInstituicoesCredenciada">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblInstituicaoCurso">
+              <PropertyRef Name="instituicao_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="adbEduqz2018ModelStoreContainer" CdmEntityContainer="DbEduqzContext">
+          <EntitySetMapping Name="tblTeste">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblTeste">
+              <MappingFragment StoreEntitySet="TblTeste">
+                <ScalarProperty Name="novo" ColumnName="novo" />
+                <ScalarProperty Name="apelido" ColumnName="apelido" />
+                <ScalarProperty Name="sobrenome" ColumnName="sobrenome" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsuarios">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblUsuarios">
+              <MappingFragment StoreEntitySet="TblUsuarios">
+                <ScalarProperty Name="meta_curso_id" ColumnName="meta_curso_id" />
+                <ScalarProperty Name="meta_universidade_id" ColumnName="meta_universidade_id" />
+                <ScalarProperty Name="instituicao_id" ColumnName="instituicao_id" />
+                <ScalarProperty Name="rede_id" ColumnName="rede_id" />
+                <ScalarProperty Name="periodo_id" ColumnName="periodo_id" />
+                <ScalarProperty Name="profissao" ColumnName="profissao" />
+                <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="sobrenome" ColumnName="sobrenome" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcursosCalendario">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblConcursosCalendario">
+              <MappingFragment StoreEntitySet="TblConcursosCalendario">
+                <ScalarProperty Name="data_segunda_fase" ColumnName="data_segunda_fase" />
+                <ScalarProperty Name="data_primeira_fase" ColumnName="data_primeira_fase" />
+                <ScalarProperty Name="exame" ColumnName="exame" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCorrecoes">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblCorrecoes">
+              <MappingFragment StoreEntitySet="TblCorrecoes">
+                <ScalarProperty Name="redacao_id" ColumnName="redacao_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLeadsEduqz">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblLeadsEduqz">
+              <MappingFragment StoreEntitySet="TblLeadsEduqz">
+                <ScalarProperty Name="humanas" ColumnName="humanas" />
+                <ScalarProperty Name="natureza" ColumnName="natureza" />
+                <ScalarProperty Name="matematica" ColumnName="matematica" />
+                <ScalarProperty Name="linguagens" ColumnName="linguagens" />
+                <ScalarProperty Name="redacao" ColumnName="redacao" />
+                <ScalarProperty Name="fez_enem" ColumnName="fez_enem" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="qual_idioma" ColumnName="qual_idioma" />
+                <ScalarProperty Name="int_idioma" ColumnName="int_idioma" />
+                <ScalarProperty Name="xadrez" ColumnName="xadrez" />
+                <ScalarProperty Name="bolsa" ColumnName="bolsa" />
+                <ScalarProperty Name="quais_univers_part" ColumnName="quais_univers_part" />
+                <ScalarProperty Name="est_universidade" ColumnName="est_universidade" />
+                <ScalarProperty Name="quais_univers" ColumnName="quais_univers" />
+                <ScalarProperty Name="curso_universitario_2" ColumnName="curso_universitario_2" />
+                <ScalarProperty Name="curso_universitario_1" ColumnName="curso_universitario_1" />
+                <ScalarProperty Name="intercambio" ColumnName="intercambio" />
+                <ScalarProperty Name="qual_olimpiada" ColumnName="qual_olimpiada" />
+                <ScalarProperty Name="olimpiada" ColumnName="olimpiada" />
+                <ScalarProperty Name="serie_atual" ColumnName="serie_atual" />
+                <ScalarProperty Name="ult_colegio" ColumnName="ult_colegio" />
+                <ScalarProperty Name="segmento" ColumnName="segmento" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="uf" ColumnName="uf" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="telefone_2" ColumnName="telefone_2" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="ddd" ColumnName="ddd" />
+                <ScalarProperty Name="qual_cota" ColumnName="qual_cota" />
+                <ScalarProperty Name="cota" ColumnName="cota" />
+                <ScalarProperty Name="renda_familiar" ColumnName="renda_familiar" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+                <ScalarProperty Name="apelido" ColumnName="apelido" />
+                <ScalarProperty Name="sobrenome" ColumnName="sobrenome" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogConsultaLeads">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblLogConsultaLeads">
+              <MappingFragment StoreEntitySet="TblLogConsultaLeads">
+                <ScalarProperty Name="universidade_id" ColumnName="universidade_id" />
+                <ScalarProperty Name="filtro_nota_max" ColumnName="filtro_nota_max" />
+                <ScalarProperty Name="filtro_nota_min" ColumnName="filtro_nota_min" />
+                <ScalarProperty Name="filtro_esporte" ColumnName="filtro_esporte" />
+                <ScalarProperty Name="filtro_segunda_lingua" ColumnName="filtro_segunda_lingua" />
+                <ScalarProperty Name="filtro_ano" ColumnName="filtro_ano" />
+                <ScalarProperty Name="filtro_cursos" ColumnName="filtro_cursos" />
+                <ScalarProperty Name="num_resultados" ColumnName="num_resultados" />
+                <ScalarProperty Name="data_consulta" ColumnName="data_consulta" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCursosCredenciados">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblCursosCredenciados">
+              <MappingFragment StoreEntitySet="TblCursosCredenciados">
+                <ScalarProperty Name="modalidade" ColumnName="modalidade" />
+                <ScalarProperty Name="grau" ColumnName="grau" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblInstituicaoCurso">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblInstituicaoCurso">
+              <MappingFragment StoreEntitySet="TblInstituicaoCurso">
+                <ScalarProperty Name="area_OCDE_curso" ColumnName="area_OCDE_curso" />
+                <ScalarProperty Name="codigo_area_OCDE_curso" ColumnName="codigo_area_OCDE_curso" />
+                <ScalarProperty Name="area_OCDE_detalhada" ColumnName="area_OCDE_detalhada" />
+                <ScalarProperty Name="codigo_area_OCDE_detalhada" ColumnName="codigo_area_OCDE_detalhada" />
+                <ScalarProperty Name="area_OCDE_especifica" ColumnName="area_OCDE_especifica" />
+                <ScalarProperty Name="codigo_area_OCDE_especifica" ColumnName="codigo_area_OCDE_especifica" />
+                <ScalarProperty Name="codigo_area_OCDE_geral" ColumnName="codigo_area_OCDE_geral" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+                <ScalarProperty Name="dt_ato_criacao" ColumnName="dt_ato_criacao" />
+                <ScalarProperty Name="dt_inicio_funcionamento" ColumnName="dt_inicio_funcionamento" />
+                <ScalarProperty Name="vagas_autorizadas" ColumnName="vagas_autorizadas" />
+                <ScalarProperty Name="modalidade" ColumnName="modalidade" />
+                <ScalarProperty Name="grau" ColumnName="grau" />
+                <ScalarProperty Name="curso_id" ColumnName="curso_id" />
+                <ScalarProperty Name="nome_curso" ColumnName="nome_curso" />
+                <ScalarProperty Name="sigla" ColumnName="sigla" />
+                <ScalarProperty Name="instituicao_id" ColumnName="instituicao_id" />
+                <ScalarProperty Name="codigo_IES" ColumnName="codigo_IES" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblInstituicoes">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblInstituicoes">
+              <MappingFragment StoreEntitySet="TblInstituicoes">
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="codigo_IES" ColumnName="codigo_IES" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblInstituicoesCredenciadas">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblInstituicoesCredenciadas">
+              <MappingFragment StoreEntitySet="TblInstituicoesCredenciadas">
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+                <ScalarProperty Name="categoria_administrativa" ColumnName="categoria_administrativa" />
+                <ScalarProperty Name="rede_id" ColumnName="rede_id" />
+                <ScalarProperty Name="tipo_credenciamento" ColumnName="tipo_credenciamento" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="rua" ColumnName="rua" />
+                <ScalarProperty Name="sigla" ColumnName="sigla" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="codigo_IES" ColumnName="codigo_IES" />
+                <ScalarProperty Name="natureza_juridica" ColumnName="natureza_juridica" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+                <ScalarProperty Name="codigo_mantenedora" ColumnName="codigo_mantenedora" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPerfil">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblPerfil">
+              <MappingFragment StoreEntitySet="TblPerfil">
+                <ScalarProperty Name="perfil" ColumnName="perfil" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPeriodoEstudante">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblPeriodoEstudante">
+              <MappingFragment StoreEntitySet="TblPeriodoEstudante">
+                <ScalarProperty Name="periodo_id" ColumnName="periodo_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRedacoes">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblRedacoes">
+              <MappingFragment StoreEntitySet="TblRedacoes">
+                <ScalarProperty Name="professor_id" ColumnName="professor_id" />
+                <ScalarProperty Name="aluno_id" ColumnName="aluno_id" />
+                <ScalarProperty Name="valor_professor" ColumnName="valor_professor" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="rascunho" ColumnName="rascunho" />
+                <ScalarProperty Name="proposta_pdf" ColumnName="proposta_pdf" />
+                <ScalarProperty Name="url_redacao" ColumnName="url_redacao" />
+                <ScalarProperty Name="url_proposta" ColumnName="url_proposta" />
+                <ScalarProperty Name="data_rascunho" ColumnName="data_rascunho" />
+                <ScalarProperty Name="data_criado" ColumnName="data_criado" />
+                <ScalarProperty Name="data_concluido" ColumnName="data_concluido" />
+                <ScalarProperty Name="data_aceitado" ColumnName="data_aceitado" />
+                <ScalarProperty Name="concluido" ColumnName="concluido" />
+                <ScalarProperty Name="cancelado" ColumnName="cancelado" />
+                <ScalarProperty Name="aceitado" ColumnName="aceitado" />
+                <ScalarProperty Name="disponivel" ColumnName="disponivel" />
+                <ScalarProperty Name="id_firebase" ColumnName="id_firebase" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRedes">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblRedes">
+              <MappingFragment StoreEntitySet="TblRedes">
+                <ScalarProperty Name="tipo_credenciamento" ColumnName="tipo_credenciamento" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUniversidadesPROUNI">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblUniversidadesPROUNI">
+              <MappingFragment StoreEntitySet="TblUniversidadesPROUNI">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="instituicao" ColumnName="instituicao" />
+                <ScalarProperty Name="sigla" ColumnName="sigla" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUniversidadesSISU">
+            <EntityTypeMapping TypeName="adbEduqz2018Model.TblUniversidadesSISU">
+              <MappingFragment StoreEntitySet="TblUniversidadesSISU">
+                <ScalarProperty Name="sigla" ColumnName="sigla" />
+                <ScalarProperty Name="instituicao" ColumnName="instituicao" />
+                <ScalarProperty Name="regiao" ColumnName="regiao" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

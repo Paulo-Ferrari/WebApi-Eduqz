@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bc6f8328eff34d1e826c0bf5c6748a78" Name="Diagram1">
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblTeste" Width="1.5" PointX="4" PointY="5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblUsuarios" Width="1.5" PointX="4" PointY="0.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblConcursosCalendario" Width="1.5" PointX="2.25" PointY="5.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblCorrecoes" Width="1.5" PointX="2.25" PointY="3.75" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblLeadsEduqz" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblLogConsultaLeads" Width="1.5" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblCursosCredenciados" Width="1.5" PointX="13" PointY="0.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblInstituicaoCurso" Width="1.5" PointX="10.75" PointY="0.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblInstituicoes" Width="1.5" PointX="5.75" PointY="2.375" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblInstituicoesCredenciadas" Width="1.5" PointX="13" PointY="2.875" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblPerfil" Width="1.5" PointX="5.75" PointY="6" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblPeriodoEstudante" Width="1.5" PointX="5.75" PointY="4.25" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblRedacoes" Width="1.5" PointX="7.5" PointY="0.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblRedes" Width="1.5" PointX="5.75" PointY="0.5" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblUniversidadesPROUNI" Width="1.5" PointX="7.5" PointY="5.375" />
+        <EntityTypeShape EntityType="adbEduqz2018Model.TblUniversidadesSISU" Width="1.5" PointX="9.125" PointY="0.5" />
+        <AssociationConnector Association="adbEduqz2018Model.FK_tblInstituicaoCurso_tblCursosCredenciados" />
+        <AssociationConnector Association="adbEduqz2018Model.FK_tblInstituicaoCurso_tblInstituicoesCredenciadas" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
